@@ -14,10 +14,6 @@ class Dashboard extends Component {
 
                     <div className="menu">
 
-                        {/* <div className="nav-item">
-                            <i className="fas fa-2x fa-list"></i>
-                            <a className="nav-link uno">Opciones</a>
-                        </div> */}
                         <div className="nav-item">
                             <i className="fas fa-shipping-fast"></i>
                             <a className="nav-link">Compra</a>
@@ -30,10 +26,7 @@ class Dashboard extends Component {
                             <i className="fas fa-cart-plus"></i>
                             <a className="nav-link">Salida</a>
                         </div>
-                        {/* <div className="nav-item">
-                            <i className="fas fa-user-slash"></i>
-                            <a className="nav-link">Salir</a>
-                        </div> */}
+                      
                         <div className="nav-item">
                             <i class="fas fa-chart-line"></i>
                             <a className="nav-link">Informes</a>
