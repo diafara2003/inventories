@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 
 import Header from "./Commons/Header";
-
+import Footer from './Commons/Footer';
 import Login from "./Login/login"
+
 
 import '../css/App.css';
 
@@ -12,12 +13,12 @@ class Init extends Component {
     return (
       <div>
         <Header></Header>
-        <div>
-          <div  >
-            <Login></Login>
-          </div>
-        </div>
+        
+        <section>
+          <Login></Login>
+        </section>
 
+        <Footer></Footer>
 
       </div>
     )

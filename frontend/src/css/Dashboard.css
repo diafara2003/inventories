@@ -4,7 +4,6 @@
     /* background-color:#606c88;  */
     border-right: 1px solid #ebebeb;
     margin-top: 55px;
-    
 }
 
 .nav-item {
@@ -15,9 +14,26 @@
     cursor: pointer;
 }
 
+.active{
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.nav-item-child {
+    margin-left: 15px;
+}
+
+.nav-item-child ul {
+    margin-bottom: 0px;
+    padding: 5px;
+}
+
+.nav-item-child li {
+    border-bottom: 1px solid #ebebeb;
+    cursor: pointer;
+}
+
 i {
     color: #5e72e4;
-    
     font-size: 20px;
 }
 
@@ -34,12 +50,17 @@ i {
 .nav-link {
     display: block;
     padding: 0.75rem 1rem;
-   
     text-decoration: none;
     background: transparent;
     color: rgba(0, 0, 0, .5);
 }
 
-.uno{
-    margin-top:8px;
+.uno {
+    margin-top: 8px;
+}
+
+@media (max-width: 500px) {
+    .menu {
+        width: 99%;
+    }
 }

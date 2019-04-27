@@ -1,6 +1,6 @@
 .noticia-login {
   width: 600px;
-  height: 80vh;
+  height: 352px;
   background-color: #efefef;
   padding: 10px 10px;
   background-color: #E4E5E6 !important;
@@ -8,10 +8,10 @@
 }
 
 
-@media (max-width: 1124px) {
+@media (max-width: 1144px) {
   .noticia-login{
     width: 90vw;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
 }
 

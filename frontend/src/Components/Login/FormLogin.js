@@ -6,7 +6,7 @@ class FormLogin extends Component {
     render() {
         const {history} = this.props;
         return (
-            <div className="shadow p-3 px-md-4 bg-white rounded form-login">
+            <div className="shadow p-3  bg-white form-login">
                 <form className="form-login">
 
                     <div>

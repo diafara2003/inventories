@@ -11,12 +11,12 @@ class Login extends Component {
             <div>
                 <div className="container">
 
-                    <div>
+                    <section>
                         <Noticias></Noticias>
-                    </div>
-                    <div>
+                    </section>
+                    <section>
                         <FormLogin></FormLogin>
-                    </div>
+                    </section>
 
 
 

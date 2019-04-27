@@ -1,47 +1,53 @@
-body{
+body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
-      
-  }
-  
+}
 
-h5{
+h5 {
   font-size: 18px;
 }
+
 .font-weight-normal {
-  font-weight: 400 ;
+  font-weight: 400;
 }
 
-.fixed-top{
+.fixed-top {
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
   z-index: 1030;
 }
+
 .align-items-center {
-  align-items: center ;
+  align-items: center;
 }
+
 .flex-column {
-  flex-direction: column ;
+  flex-direction: column;
 }
 
 .d-flex {
-  display: flex ;
+  display: flex;
 }
+
 .border-bottom {
-  border-bottom: 1px solid #00C9FF;
-
-
+  border-bottom: 1px solid #ebebeb;
 }
+
+.border-top {
+  border-top: 1px solid #00C9FF;
+}
+
 .bg-white {
-  background-color: #fff ;
+  background-color: #fff;
 }
 
 .p-3 {
-  padding: 10px ;
+  padding: 10px;
 }
+
 .mb-0, .my-0 {
-  margin-bottom: 0 ;
+  margin-bottom: 0;
 }
 
 .shadow-sm {
@@ -49,40 +55,64 @@ h5{
 }
 
 .shadow {
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) ;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 
 .rounded {
-  border-radius: 2.5px ;
+  border-radius: 2.5px;
 }
 
-.container{
+.container {
   display: flex;
-  width: 99.1%;
-  margin: 80px 0 0 10px;
-  
+  width: 100%;
+  margin: 80px 0 0 0;
   justify-content: space-between;
   flex-wrap: wrap;
-
-
-
-  
+  padding: 20px !important;
 }
 
-
-.text-right{
+.text-right {
   text-align: right;
 }
-.text-left{
-text-align: left;
+
+.text-left {
+  text-align: left;
 }
-.text-center{
+
+.text-center {
   text-align: center;
 }
 
-
-.nav-header{
+.nav-header {
   display: flex;
   width: 100%;
   justify-content: space-between;
+}
+
+.footer {
+  position: fixed;
+  height: 50px;
+  width: 100%;
+  text-align: center;
+  top: 90%;
+  bottom: 0;
+}
+
+.footer div {
+  padding: 10px;
+}
+
+
+i{
+  cursor: pointer;
+}
+
+@media (max-width: 1144px) {
+  .container {
+    width: 100%;
+    padding: 0;
+  }
+  .footer {
+    position: relative;
+  }
 }

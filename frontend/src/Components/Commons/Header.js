@@ -4,6 +4,7 @@ class Header extends Component {
 
     render() {
         return (
+            <header>
             <div className="d-flex flex-column flex-md-row align-items-center p-3  mb-3 bg-white border-bottom shadow-sm fixed-top">
                 <div className="nav-header">
 
@@ -15,10 +16,11 @@ class Header extends Component {
                         Software de Inventario
                 </h5>
                     <div className="user-login-in">
-                    <i className="fas fa-2x fa-user-slash"></i>
+                        <i className="fas fa-2x fa-user-slash"></i>
                     </div>
                 </div>
             </div>
+            </header >
         )
     };
 

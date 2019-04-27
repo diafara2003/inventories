@@ -1,17 +1,12 @@
 .form-login {
     width: 450px;
+    margin-top: 7%;
 }
 
-@media (max-width: 1124px) {
-    .form-login {
-        width: 90vw;
-        margin-bottom: 20px;
+@media (max-width: 1144px) {
+    .form-login{
+      width: 90vw;
+      margin-top:0px;
+      
     }
-}
-
-@media (max-width: 500px) {
-    .form-login {
-        width: 88vw;
-        
-    }
-}
+  }
