@@ -14,36 +14,33 @@ class Dashboard extends Component {
 
                     <div className="menu">
 
-                    <div className="nav-item">
-                    <i class="fas fa-2x fa-list"></i>
+                        {/* <div className="nav-item">
+                            <i className="fas fa-2x fa-list"></i>
                             <a className="nav-link uno">Opciones</a>
-                        </div>
-                        
-
+                        </div> */}
                         <div className="nav-item">
-                            <i class="fas fa-shipping-fast"></i>
+                            <i className="fas fa-shipping-fast"></i>
                             <a className="nav-link">Compra</a>
                         </div>
                         <div className="nav-item">
-                            <i class="fas fa-cart-arrow-down"></i>
+                            <i className="fas fa-cart-arrow-down"></i>
                             <a className="nav-link">Entrada</a>
                         </div>
                         <div className="nav-item">
-                        <i class="fas fa-cart-plus"></i>
+                            <i className="fas fa-cart-plus"></i>
                             <a className="nav-link">Salida</a>
                         </div>
-                        <div className="nav-item">
-                        <i class="fas fa-user-slash"></i>
+                        {/* <div className="nav-item">
+                            <i className="fas fa-user-slash"></i>
                             <a className="nav-link">Salir</a>
+                        </div> */}
+                        <div className="nav-item">
+                            <i class="fas fa-chart-line"></i>
+                            <a className="nav-link">Informes</a>
                         </div>
-
 
 
                     </div>
-
-
-
-
                 </div>
 
             </div>
