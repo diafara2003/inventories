@@ -1,0 +1,21 @@
+.do-work {
+    display: flex;
+
+}
+
+.form-data {
+    margin: 80px 10px 0 10px;
+    width: 100%;
+}
+
+h5{
+    font-weight: 500;
+}
+
+hr{
+    margin:5px 0 25px 0;
+}
+
+textarea{
+    height: 200px;
+}
