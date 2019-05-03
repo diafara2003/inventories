@@ -1,7 +1,7 @@
 .menu {
     width: 200px;
     height: 90vh;
-    background-color:#e65100; 
+    background-color:rgba(230, 72, 20, 1); 
     border-right: 1px solid #ebebeb;
     margin-top: 55px;
 }
@@ -14,7 +14,7 @@
     display: flex;
     padding: 5px;
     margin: 5px;
-    border-bottom: 1px solid #5e72e4;
+    border-bottom: 1px solid rgba(230, 72, 20, 1);
     cursor: pointer;
 }
 
@@ -32,7 +32,7 @@
 }
 
 .nav-item-child li {
-    border-bottom: 1px solid #ebebeb;
+    border-bottom: 1px solid rgba(230, 72, 20, 1);
     cursor: pointer;
 }
 

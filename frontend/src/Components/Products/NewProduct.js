@@ -21,7 +21,7 @@ class NewProduct extends Component {
                         <h5>Nuevo producto</h5>
                         <hr />
                         <form>
-                            <div class="six columns">
+                            <div className="six columns">
                                 <label >Nombre</label>
                                 <input className="u-full-width" type="text" placeholder="Nombre del producto" id="exampleEmailInput"></input>
                             </div>
@@ -42,7 +42,7 @@ class NewProduct extends Component {
                                 <label >Precio de venta</label>
                                 <input className="u-full-width" type="text" placeholder="precio de venta" id="exampleEmailInput"></input>
                             </div>
-                            <button class="button-primary">Guardar</button>
+                            <button className="button-primary">Guardar</button>
 
                             {/* <label >Descripción del producto</label>
                             <textarea className="u-full-width"  placeholder="Descripcion corta del producto" maxLength="500" id="exampleMessage"></textarea>
@@ -50,7 +50,7 @@ class NewProduct extends Component {
                         </form>
                     </section>
                 </div>
-                <Footer></Footer>
+                
             </section>
         )
     };

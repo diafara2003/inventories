@@ -18,18 +18,18 @@ class Dashboard extends Component {
                     <div className="menu">
 
                         <div className="nav-item active">
-                            <i class="fas fa-2x fa-flask"></i>
+                            <i className="fas fa-2x fa-flask"></i>
                             <a className="nav-link">Productos</a>
-                            <i class="fas fa-chevron-right"></i>
+                            <i className="fas fa-chevron-right"></i>
                         </div>
                         <div className="nav-item-child">
                             <Options></Options>
                         </div>
 
                         <div className="nav-item">
-                            <i class="fas fa-cart-plus"></i>
+                            <i className="fas fa-cart-plus"></i>
                             <a className="nav-link">Entradas de almacén</a>
-                            <i class="fas fa-chevron-right"></i>
+                            <i className="fas fa-chevron-right"></i>
                         </div>
                         <div>
                             <div>
@@ -41,9 +41,9 @@ class Dashboard extends Component {
                             </div>
                         </div>
                         <div className="nav-item">
-                            <i class="fas fa-cart-plus"></i>
+                            <i className="fas fa-cart-plus"></i>
                             <a className="nav-link">Salida de almacén</a>
-                            <i class="fas fa-chevron-right"></i>
+                            <i className="fas fa-chevron-right"></i>
                         </div>
                         <div>
                             <div>
@@ -56,9 +56,9 @@ class Dashboard extends Component {
                             </div>
                         </div>
                         <div className="nav-item">
-                            <i class="fas fa-cart-plus"></i>
+                            <i className="fas fa-cart-plus"></i>
                             <a className="nav-link">Informes</a>
-                            <i class="fas fa-chevron-right"></i>
+                            <i className="fas fa-chevron-right"></i>
                         </div>
                         <div>
                             <div>
