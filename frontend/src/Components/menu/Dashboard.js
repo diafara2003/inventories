@@ -28,8 +28,45 @@ class Dashboard extends Component {
 
                         <div className="nav-item">
                             <i class="fas fa-cart-plus"></i>
-                            <a className="nav-link">Entradas</a>
+                            <a className="nav-link">Entradas de almacén</a>
                             <i class="fas fa-chevron-right"></i>
+                        </div>
+                        <div>
+                            <div>
+                                <ul>
+                                    <li><Link to="/newproduct">Crear entrada</Link></li>
+                                    <li> <Link to="/products">Edición de la entrada</Link></li>  
+                                    <li> <Link to="/products">Aprobación entrada</Link></li>                                  
+                                </ul>
+                            </div>
+                        </div>
+                        <div className="nav-item">
+                            <i class="fas fa-cart-plus"></i>
+                            <a className="nav-link">Salida de almacén</a>
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                        <div>
+                            <div>
+                                <ul>
+                                    <li><Link to="/newproduct">Crear salida</Link></li>
+                                    <li> <Link to="/products">Edición salida</Link></li>                                    
+                                    <li> <Link to="/products">Aprobación salida</Link></li>                                    
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div className="nav-item">
+                            <i class="fas fa-cart-plus"></i>
+                            <a className="nav-link">Informes</a>
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                        <div>
+                            <div>
+                                <ul>
+                                    <li><Link to="/newproduct">Entradas de almacén</Link></li>
+                                    <li> <Link to="/products">Salidas de salida</Link></li>                                                                        
+                                </ul>
+                            </div>
                         </div>
 
                     </div>

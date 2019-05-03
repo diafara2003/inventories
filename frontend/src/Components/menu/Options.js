@@ -8,6 +8,8 @@ render(){
             <ul>
                 <li><Link to="/newproduct">Crear producto</Link></li>
                 <li> <Link to="/products">Consultar productos</Link></li>                
+                <li> <Link to="/products">Crear agrupaciones </Link></li>                
+                <li> <Link to="/products">Consultar agrupaciones </Link></li>                
             </ul>
         </div>
     )

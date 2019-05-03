@@ -18,8 +18,8 @@ class NewProduct extends Component {
                         <Dashboard></Dashboard>
                     </section>
                     <section className="form-data">
-                    <h5>Nuevo producto</h5>
-                    <hr />
+                        <h5>Nuevo producto</h5>
+                        <hr />
                         <form>
                             <div class="six columns">
                                 <label >Nombre</label>
@@ -30,9 +30,23 @@ class NewProduct extends Component {
                                 <input className="u-full-width" type="text" placeholder="unidad de medida" id="exampleEmailInput"></input>
                             </div>
 
-                            <label >Descripción del producto</label>
+                            <div className="six columns">
+                                <label >Categoria</label>
+                                <input className="u-full-width" type="text" placeholder="categoria" id="exampleEmailInput"></input>
+                            </div>
+                            <div className="six columns">
+                                <label >Precio de compra</label>
+                                <input className="u-full-width" type="text" placeholder="precio de compra" id="exampleEmailInput"></input>
+                            </div>
+                            <div className="six columns">
+                                <label >Precio de venta</label>
+                                <input className="u-full-width" type="text" placeholder="precio de venta" id="exampleEmailInput"></input>
+                            </div>
+                            <button class="button-primary">Guardar</button>
+
+                            {/* <label >Descripción del producto</label>
                             <textarea className="u-full-width"  placeholder="Descripcion corta del producto" maxLength="500" id="exampleMessage"></textarea>
-                            <input className="button-primary" type="submit" value="guardar"></input>
+                            <input className="button-primary" type="submit" value="guardar"></input> */}
                         </form>
                     </section>
                 </div>

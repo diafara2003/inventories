@@ -5,7 +5,7 @@ class Header extends Component {
     render() {
         return (
             <header>
-            <div className="d-flex flex-column flex-md-row align-items-center p-3  mb-3 bg-white border-bottom shadow-sm fixed-top">
+            <div className="d-flex flex-column flex-md-row align-items-center p-3  mb-3 bg-white border-bottom shadow-sm fixed-top header-color">
                 <div className="nav-header">
 
                     <div>
