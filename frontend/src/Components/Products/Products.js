@@ -42,12 +42,10 @@ const rows = [
 
 class Products extends Component {
 
-
-
-
     render() {
 
         const { classes } = this.props;
+
         return (
             <section>
                 <Header></Header>
