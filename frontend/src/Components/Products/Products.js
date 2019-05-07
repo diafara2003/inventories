@@ -6,7 +6,7 @@ import '../../css/Products.css';
 import Header from '../Commons/Header';
 import Dashboard from "../menu/Dashboard";
 
-import PropTypes from 'prop-types';
+
 import { withStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
