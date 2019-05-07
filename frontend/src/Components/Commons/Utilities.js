@@ -11,9 +11,9 @@ export const MENUS_OP = [
     },
     {
         item: 'Entrada de almacén', subItem: [
-            { name: 'Crear entrada', path:'/newentry' },
-            { name: 'Edición entrada', path:'/entries' },
-            { name: 'Aprobación entrada', path:'/' },            
+            // { name: 'Crear entrada', path:'/newentry' },
+            // { name: 'Edición entrada', path:'/entries' },
+            // { name: 'Aprobación entrada', path:'/' },            
         ]
 
     },
