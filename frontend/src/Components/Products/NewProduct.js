@@ -4,7 +4,6 @@ import '../../css/skeleton.css';
 import '../../css/Products.css';
 
 import Header from '../Commons/Header';
-import Footer from '../Commons/Footer';
 import Dashboard from "../menu/Dashboard";
 
 import Button from '@material-ui/core/Button';

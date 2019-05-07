@@ -3,13 +3,12 @@ import {Link} from 'react-router-dom'
 
 class Options extends Component{
 render(){
+    const { name, path } = this.props.option;
     return(
         <div>
             <ul>
-                <li><Link to="/newproduct">Crear producto</Link></li>
-                <li> <Link to="/products">Consultar productos</Link></li>                
-                <li> <Link to="/products">Crear agrupaciones </Link></li>                
-                <li> <Link to="/products">Consultar agrupaciones </Link></li>                
+                <li><Link to={path}>{name}</Link></li>
+                    
             </ul>
         </div>
     )

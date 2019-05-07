@@ -1,25 +1,35 @@
 .menu {
     width: 200px;
     height: 90vh;
-    background-color:rgba(230, 72, 20, 1); 
+    /* background-color:rgba(230, 72, 20, 1);  */
     border-right: 1px solid #ebebeb;
     margin-top: 55px;
     overflow: auto;
 }
 
-.menu a{
+.menu a {
     color: black;
+    width: 140px;
 }
 
 .nav-item {
     display: flex;
     padding: 5px;
     margin: 5px;
+    width: 180px;
+    
     border-bottom: 1px solid rgba(230, 72, 20, 1);
     cursor: pointer;
 }
 
-.active{
+.nav-item:hover {
+    background-color: rgba(230, 72, 20, 1);
+}
+.nav-item a:hover{
+    color:white;
+}
+
+.active {
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
 }
 
@@ -33,7 +43,7 @@
 }
 
 .nav-item-child li {
-    border-bottom: 1px solid rgba(230, 72, 20, 1);
+    /* border-bottom: 1px solid rgba(230, 72, 20, 1); */
     cursor: pointer;
 }
 
