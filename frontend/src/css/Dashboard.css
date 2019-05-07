@@ -4,6 +4,7 @@
     background-color:rgba(230, 72, 20, 1); 
     border-right: 1px solid #ebebeb;
     margin-top: 55px;
+    overflow: auto;
 }
 
 .menu a{
