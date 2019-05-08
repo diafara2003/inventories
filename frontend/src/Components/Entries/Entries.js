@@ -50,7 +50,7 @@ class Entries extends Component {
                 <Header></Header>
                 <div className="do-work">
                     <section>
-                        <Dashboard></Dashboard>
+                        <Dashboard option="Entrada de almacén"></Dashboard>
                     </section>
                     <section className="form-data">
                         <h5>Nueva entrada</h5>

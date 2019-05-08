@@ -12,8 +12,6 @@ import NewEntry from '../Entries/NewEntry';
 import Entries from '../Entries/Entries';
 
 
-
-
 const RouterApp = () => {
     return (
         <BrowserRouter>
@@ -21,7 +19,7 @@ const RouterApp = () => {
 
                 <Route path='/' exact component={Init}></Route>                
                 
-                <Route path="/init" component={Categories}></Route>
+                
                 <Route path='/dashboard' component={Categories}></Route>
 
                 <Route path='/newproduct' component={NewProduct}></Route>
