@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 
-class Options extends Component {
-    render() {
-        const { name, path } = this.props.option;
-        return (
-            <div>
+const Options = (props) => {
 
-                <li><Link to={path}>{name}</Link></li>
+    const { name, path } = props.option;
+    return (
+        <div>
 
-            </div>
-        )
-    };
+            <li><Link to={path}>{name}</Link></li>
+
+        </div>
+    )
+
 }
 
 export default Options;
