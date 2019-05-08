@@ -23,7 +23,7 @@ class FormLogin extends Component {
                     <div className="form-group text-right">
                         <button type="button" className="button-primary"
                             onClick={() => {
-                                history.push('/init');
+                                history.push('/dashboard');
                             }}
                         >Ingresar
                         </button>
