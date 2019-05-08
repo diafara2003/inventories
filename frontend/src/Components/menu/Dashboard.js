@@ -11,8 +11,14 @@ import '../../css/Dashboard.css';
 
 class Dashboard extends Component {
 
+    state = {
+        item: ''
+    }
+
+
 
     render() {
+
 
         return (
             <section>
@@ -24,7 +30,10 @@ class Dashboard extends Component {
                             MENUS_OP.map((k) => {
                                 return (
                                     <div>
-                                        {this.props.option !== undefined && this.props.option === k.item ?
+                                        {this.props.option !== undefined
+                                           
+                                            && this.props.option === k.item 
+                                            || this.state.item===k.item?
                                             <div>
                                                 < div className="nav-item active" key={k.item} >
                                                     <a onClick={e => {
@@ -34,26 +43,27 @@ class Dashboard extends Component {
                                                     <i className="fas fa-chevron-right"></i>
 
                                                 </div>
-
-
                                                 <div className="nav-item-child">
-                                                    <ul>
+                                                    <ul key={Date.now()}>
                                                         {k.subItem.map(sub => {
                                                             return (
-                                                                <Options option={sub}></Options>
+                                                                <Options key={sub.name} option={sub}></Options>
                                                             )
                                                         })
                                                         }
                                                     </ul>
                                                 </div>
 
-
                                             </div>
                                             :
                                             < div className="nav-item" key={k.item} >
 
                                                 <a onClick={e => {
-
+                                                   
+                                                        this.setState({
+                                                            item: k.item
+                                                        })
+                                                
                                                 }}
                                                     className="nav-link">{k.item}</a>
                                                 <i className="fas fa-chevron-right"></i>

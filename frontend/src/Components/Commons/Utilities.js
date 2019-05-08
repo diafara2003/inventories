@@ -26,7 +26,10 @@ export const MENUS_OP = [
     },
     {
         item:'Informes',
-        subItem:[]
+        subItem:[
+            { name: 'Informe de  salida', path:'/' },
+            { name: 'Informe de entrada', path:'/' },
+        ]
     }
 
 ];
