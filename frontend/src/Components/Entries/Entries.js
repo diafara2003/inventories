@@ -11,11 +11,12 @@ import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
 import DeleteSharpIcon from '@material-ui/icons/DeleteSharp';
+import EditSharpIcon from '@material-ui/icons/EditSharp';
 
+import { CustomTableRow, CustomTableCell } from '../Utilities/Utilities'
 
 
 const styles = theme => ({
@@ -27,6 +28,10 @@ const styles = theme => ({
     table: {
         minWidth: 700,
     },
+    spaceIcon: {
+        marginRight: 10
+    }
+
 });
 
 let id = 0;
@@ -44,7 +49,10 @@ const rows = [
 ];
 
 class Entries extends Component {
+
     render() {
+
+        const { classes } = this.props;
         return (
             <section>
                 <Header></Header>
@@ -59,28 +67,27 @@ class Entries extends Component {
                             <Paper >
                                 <Table >
                                     <TableHead>
-                                        <TableRow>
-                                            <TableCell>No entrada</TableCell>
-                                            <TableCell align="right">Fecha creación</TableCell>
-                                            <TableCell align="right">Estado</TableCell>
-                                            <TableCell align="right">Valor</TableCell>
-                                            <TableCell align="center">Opciones</TableCell>
-                                        </TableRow>
+                                        <CustomTableRow>
+                                            <CustomTableCell>No entrada</CustomTableCell>
+                                            <CustomTableCell align="right">Fecha creación</CustomTableCell>
+                                            <CustomTableCell align="right">Estado</CustomTableCell>
+                                            <CustomTableCell align="right">Valor</CustomTableCell>
+                                            <CustomTableCell align="center">Opciones</CustomTableCell>
+                                        </CustomTableRow>
                                     </TableHead>
                                     <TableBody>
                                         {rows.map(row => (
-                                            <TableRow key={row.id}>
-                                                <TableCell component="th" scope="row">
-                                                    <a>{row.name}</a>
-                                                </TableCell>
+                                            <CustomTableRow key={row.id}>
+                                                <TableCell >{row.name}</TableCell>
                                                 <TableCell align="right"> {row.calories}</TableCell>
                                                 <TableCell align="right">{row.fat}</TableCell>
                                                 <TableCell align="right">{row.carbs}</TableCell>
                                                 <TableCell align="center" >
-                                                    <DeleteSharpIcon />
-                                                    
+                                                    <DeleteSharpIcon className={classes.spaceIcon} />
+                                                    <EditSharpIcon />
+
                                                 </TableCell>
-                                            </TableRow>
+                                            </CustomTableRow>
                                         ))}
                                     </TableBody>
                                 </Table>

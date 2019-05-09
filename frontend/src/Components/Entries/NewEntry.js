@@ -18,29 +18,12 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import SaveIcon from '@material-ui/icons/Save';
 
 
-
 import '../../css/skeleton.css';
 import '../../css/Products.css';
 
+import {CustomTableRow,CustomTableCell} from '../Utilities/Utilities'
 
 
-const CustomTableCell = withStyles(theme => ({
-    head: {
-        backgroundColor: '#e65100',
-        color: theme.palette.common.white,
-
-    },
-    body: {
-        fontSize: 14,
-    },
-}))(TableCell);
-
-
-const CustomTableRow = withStyles(themre => ({
-    head: {
-        height: 36
-    }
-}))(TableRow);
 
 const styles = theme => ({
     root: {
@@ -52,6 +35,10 @@ const styles = theme => ({
     margin: {
         margin: 7,
       },
+      borderFecha:{
+          borderBottom:'1px solid black',
+          
+      }
 });
 
 class NewEntry extends Component {
@@ -70,9 +57,17 @@ class NewEntry extends Component {
                         <div>
                             <Paper className={classes.root}>
                                 <div>
-                                    <div className="nine columns">
+                                    <div className="seven columns">
                                         <label >Proveedor</label>
                                         <input className="u-full-width" type="text" placeholder="Nombre del proveedor" id="exampleEmailInput"></input>
+
+                                    </div>
+                                    <div className="two columns">
+                                        <label >Fecha</label>
+                                        <div className={classes.borderFecha}>
+                                            <span>08/05/2019</span>
+                                        </div>
+                                        
 
                                     </div>
                                     <div className="three columns">

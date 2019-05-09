@@ -43,7 +43,7 @@ class Dashboard extends Component {
 
                                                     }}
                                                         className="nav-link">{k.item}</a>
-                                                    <i className="fas fa-chevron-right"></i>
+                                                    <i class="fas fa-chevron-down"></i>
 
                                                 </div>
                                                 <div className="nav-item-child">

@@ -17,6 +17,10 @@ const styles = theme => ({
         marginTop: theme.spacing.unit * 3,
         padding: '10px',
         overflowX: 'auto',
+    },
+    fondo: {
+        backgroundColor: '#e65100',
+        color: 'white'
     }
 });
 
@@ -64,15 +68,16 @@ class NewProduct extends Component {
                                         <input className="u-full-width" type="text" placeholder="precio de venta" id="exampleEmailInput"></input>
                                     </div>
                                 </div>
-
-                                <div className="six columns">
-                                    <div>
-                                        <Button
-                                            variant="contained"
-                                            size="large"
-                                            color="primary" >
-                                            Guardar
+                                <div>
+                                    <div className="six columns">
+                                        <div>
+                                            <Button
+                                                variant="contained"
+                                                size="large"
+                                                className={classes.fondo} >
+                                                Guardar
                                     </Button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

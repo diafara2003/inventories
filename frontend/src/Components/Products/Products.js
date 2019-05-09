@@ -15,6 +15,8 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
+import {CustomTableRow,CustomTableCell} from '../Utilities/Utilities'
+
 const styles = theme => ({
     root: {
         width: '100%',
@@ -61,17 +63,17 @@ class Products extends Component {
                             <Paper className={classes.root}>
                                 <Table className={classes.table}>
                                     <TableHead>
-                                        <TableRow>
-                                            <TableCell>Dessert (100g serving)</TableCell>
-                                            <TableCell align="right">Calories</TableCell>
-                                            <TableCell align="right">Fat (g)</TableCell>
-                                            <TableCell align="right">Carbs (g)</TableCell>
-                                            <TableCell align="right">Protein (g)</TableCell>
-                                        </TableRow>
+                                        <CustomTableRow>
+                                            <CustomTableCell>Dessert (100g serving)</CustomTableCell>
+                                            <CustomTableCell align="right">Calories</CustomTableCell>
+                                            <CustomTableCell align="right">Fat (g)</CustomTableCell>
+                                            <CustomTableCell align="right">Carbs (g)</CustomTableCell>
+                                            <CustomTableCell align="right">Protein (g)</CustomTableCell>
+                                        </CustomTableRow>
                                     </TableHead>
                                     <TableBody>
                                         {rows.map(row => (
-                                            <TableRow key={row.id}>
+                                            <CustomTableRow key={row.id}>
                                                 <TableCell component="th" scope="row">
                                                     {row.name}
                                                 </TableCell>
@@ -79,7 +81,7 @@ class Products extends Component {
                                                 <TableCell align="right">{row.fat}</TableCell>
                                                 <TableCell align="right">{row.carbs}</TableCell>
                                                 <TableCell align="right">{row.protein}</TableCell>
-                                            </TableRow>
+                                            </CustomTableRow>
                                         ))}
                                     </TableBody>
                                 </Table>

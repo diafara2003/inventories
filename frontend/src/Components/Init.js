@@ -12,7 +12,7 @@ class Init extends Component {
   render() {
     return (
       <div>
-        <Header></Header>
+        <Header Icon={false}></Header>
         
         <section>
           <Login></Login>
