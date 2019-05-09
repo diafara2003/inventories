@@ -22,6 +22,7 @@ const styles = theme => ({
         backgroundColor: '#e65100',
         color: 'white'
     }
+    
 });
 
 class NewProduct extends Component {

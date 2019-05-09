@@ -7,6 +7,7 @@ import Header from '../Commons/Header';
 import Options from './Options';
 
 import '../../css/Dashboard.css';
+import random from 'uuid';
 
 
 class Dashboard extends Component {
@@ -32,25 +33,25 @@ class Dashboard extends Component {
                         {
                             MENUS_OP.map((k) => {
                                 return (
-                                    <div>
+                                    <div key={random.v1()}>
                                         {this.state.item !== undefined
 
                                             && this.state.item === k.item
                                              ?
                                             <div>
-                                                < div className="nav-item active" key={k.item} >
+                                                < div className="nav-item active"  >
                                                     <a onClick={e => {
 
                                                     }}
                                                         className="nav-link">{k.item}</a>
-                                                    <i class="fas fa-chevron-down"></i>
+                                                    <i className="fas fa-chevron-down"></i>
 
                                                 </div>
                                                 <div className="nav-item-child">
-                                                    <ul key={Date.now()}>
+                                                    <ul >
                                                         {k.subItem.map(sub => {
                                                             return (
-                                                                <Options key={sub.name} option={sub}></Options>
+                                                                <Options key={random.v1()} option={sub}></Options>
                                                             )
                                                         })
                                                         }
@@ -59,7 +60,7 @@ class Dashboard extends Component {
 
                                             </div>
                                             :
-                                            < div className="nav-item" key={k.item} >
+                                            < div className="nav-item" >
 
                                                 <a onClick={e => {
 

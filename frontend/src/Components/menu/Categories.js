@@ -34,7 +34,7 @@ class Cateogies extends Component {
                 <Header></Header>
                 <div className="do-work">
                     <section>
-                        <Dashboard ></Dashboard>
+                        <Dashboard key={Date.now()}></Dashboard>
                     </section>
 
                     <section className="form-data">
