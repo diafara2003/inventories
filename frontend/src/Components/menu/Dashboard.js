@@ -31,9 +31,9 @@ class Dashboard extends Component {
                                 return (
                                     <div>
                                         {this.props.option !== undefined
-                                           
-                                            && this.props.option === k.item 
-                                            || this.state.item===k.item?
+
+                                            && this.props.option === k.item
+                                            || this.state.item === k.item ?
                                             <div>
                                                 < div className="nav-item active" key={k.item} >
                                                     <a onClick={e => {
@@ -59,11 +59,12 @@ class Dashboard extends Component {
                                             < div className="nav-item" key={k.item} >
 
                                                 <a onClick={e => {
-                                                   
-                                                        this.setState({
-                                                            item: k.item
-                                                        })
-                                                
+
+                                                    this.setState({
+                                                        item: k.item
+
+                                                    })
+
                                                 }}
                                                     className="nav-link">{k.item}</a>
                                                 <i className="fas fa-chevron-right"></i>
