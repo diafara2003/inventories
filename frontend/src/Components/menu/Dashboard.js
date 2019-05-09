@@ -12,14 +12,17 @@ import '../../css/Dashboard.css';
 class Dashboard extends Component {
 
     state = {
-        item: ''
+        item: this.props.option
     }
 
-
+    udatestate = (value) => {
+        this.setState({
+            item: value
+        })
+    }    
 
     render() {
-
-
+        
         return (
             <section>
 
@@ -30,10 +33,10 @@ class Dashboard extends Component {
                             MENUS_OP.map((k) => {
                                 return (
                                     <div>
-                                        {this.props.option !== undefined
+                                        {this.state.item !== undefined
 
-                                            && this.props.option === k.item
-                                            || this.state.item === k.item ?
+                                            && this.state.item === k.item
+                                             ?
                                             <div>
                                                 < div className="nav-item active" key={k.item} >
                                                     <a onClick={e => {

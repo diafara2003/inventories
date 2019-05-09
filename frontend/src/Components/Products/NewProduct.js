@@ -15,7 +15,7 @@ const styles = theme => ({
     root: {
         width: '95%',
         marginTop: theme.spacing.unit * 3,
-        padding:'10px',
+        padding: '10px',
         overflowX: 'auto',
     }
 });
@@ -75,15 +75,8 @@ class NewProduct extends Component {
                                     </Button>
                                     </div>
                                 </div>
-
-
-                                {/* <label >Descripción del producto</label>
-                            <textarea className="u-full-width"  placeholder="Descripcion corta del producto" maxLength="500" id="exampleMessage"></textarea>
-                            <input className="button-primary" type="submit" value="guardar"></input> */}
                             </div>
-
                         </Paper>
-
                     </section>
                 </div>
 
