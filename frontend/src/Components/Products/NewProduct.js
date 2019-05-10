@@ -10,6 +10,7 @@ import Dashboard from "../menu/Dashboard";
 import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
+import TextField from '@material-ui/core/TextField';
 
 const styles = theme => ({
     root: {
@@ -22,7 +23,20 @@ const styles = theme => ({
         backgroundColor: '#e65100',
         color: 'white'
     }
-    
+    ,
+    textField: {
+        marginLeft: theme.spacing.unit,
+        marginRight: theme.spacing.unit,
+        width: '100%',
+        fontSize: '16px'
+    },
+    dense: {
+        marginTop: 19,
+    },
+    menu: {
+        width: 200,
+    },
+
 });
 
 class NewProduct extends Component {
@@ -43,30 +57,56 @@ class NewProduct extends Component {
                             <div>
                                 <div>
                                     <div className="six columns">
-                                        <label >Nombre</label>
-                                        <input className="u-full-width" type="text" placeholder="Nombre del producto" id="exampleEmailInput"></input>
+                                        <TextField
+                                            id="standard-name"
+                                            label="Nombre"
+                                            className={classes.textField}
+
+                                            margin="normal"
+                                        />
+
                                     </div>
                                     <div className="six columns">
-                                        <label >Unidad de medida</label>
-                                        <input className="u-full-width" type="text" placeholder="unidad de medida" id="exampleEmailInput"></input>
+                                        <TextField
+                                            id="standard-name"
+                                            label="Unidad de medida"
+                                            className={classes.textField}
+
+                                            margin="normal"
+                                        />
                                     </div>
                                 </div>
 
                                 <div className="row">
                                     <div className="six columns">
-                                        <label >Categoria</label>
-                                        <input className="u-full-width" type="text" placeholder="categoria" id="exampleEmailInput"></input>
+                                    <TextField
+                                            id="standard-name"
+                                            label="Categoria"
+                                            className={classes.textField}
+
+                                            margin="normal"
+                                        />
                                     </div>
                                 </div>
                                 <div>
 
                                     <div className="six columns">
-                                        <label >Precio de compra</label>
-                                        <input className="u-full-width" type="text" placeholder="precio de compra" id="exampleEmailInput"></input>
+                                    <TextField
+                                            id="standard-name"
+                                            label="Precio de compra"
+                                            className={classes.textField}
+
+                                            margin="normal"
+                                        />
                                     </div>
                                     <div className="six columns">
-                                        <label >Precio de venta</label>
-                                        <input className="u-full-width" type="text" placeholder="precio de venta" id="exampleEmailInput"></input>
+                                    <TextField
+                                            id="standard-name"
+                                            label="Precio de venta"
+                                            className={classes.textField}
+
+                                            margin="normal"
+                                        />
                                     </div>
                                 </div>
                                 <div>

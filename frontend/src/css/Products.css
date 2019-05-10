@@ -1,6 +1,5 @@
 .do-work {
     display: flex;
-
 }
 
 .form-data {
@@ -8,14 +7,31 @@
     width: 100%;
 }
 
-h5{
+h5 {
     font-weight: 500;
 }
 
-hr{
-    margin:5px 0 25px 0;
+h2{
+    
 }
 
-textarea{
+hr {
+    margin: 5px 0 25px 0;
+}
+
+textarea {
     height: 200px;
+}
+
+.columns div, .input-material div {
+    margin-left: 0px;
+}
+
+.columns label, .input-material label {
+    font-size: 17px;
+    font-weight: 200;
+}
+
+.columns input, .input-material input {
+    font-size: 16px;
 }
