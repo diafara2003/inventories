@@ -6,11 +6,13 @@ import '../../css/Products.css';
 import Header from '../Commons/Header';
 import Dashboard from "../menu/Dashboard";
 
+import Swal from "sweetalert2";
 
 import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
+
 
 const styles = theme => ({
     root: {
@@ -41,6 +43,17 @@ const styles = theme => ({
 
 class NewProduct extends Component {
 
+
+    HandleGuardar = () => {
+        Swal.fire({
+            type: 'success',
+            title: 'Producto creado...',
+            text: 'de click en el boton aceptar para continuar',
+            confirmButtonText:'Aceptar'
+
+        })
+    }
+
     render() {
         const { classes } = this.props;
         return (
@@ -54,74 +67,79 @@ class NewProduct extends Component {
                         <h5>Nuevo producto</h5>
                         <hr />
                         <Paper className={classes.root}>
-                            <div>
+                            <form>
                                 <div>
-                                    <div className="six columns">
-                                        <TextField
-                                            id="standard-name"
-                                            label="Nombre"
-                                            className={classes.textField}
+                                    <div>
+                                        <div className="six columns">
+                                            <TextField
+                                                id="standard-name"
+                                                label="Nombre"
+                                                className={classes.textField}
 
-                                            margin="normal"
-                                        />
+                                                margin="normal"
+                                            />
 
+                                        </div>
+                                        <div className="six columns">
+                                            <TextField
+                                                id="standard-name"
+                                                label="Unidad de medida"
+                                                className={classes.textField}
+
+                                                margin="normal"
+                                            />
+                                        </div>
                                     </div>
-                                    <div className="six columns">
-                                        <TextField
-                                            id="standard-name"
-                                            label="Unidad de medida"
-                                            className={classes.textField}
 
-                                            margin="normal"
-                                        />
+                                    <div className="row">
+                                        <div className="six columns">
+                                            <TextField
+                                                id="standard-name"
+                                                label="Categoria"
+                                                className={classes.textField}
+
+                                                margin="normal"
+                                            />
+                                        </div>
                                     </div>
-                                </div>
+                                    <div>
 
-                                <div className="row">
-                                    <div className="six columns">
-                                    <TextField
-                                            id="standard-name"
-                                            label="Categoria"
-                                            className={classes.textField}
+                                        <div className="six columns">
+                                            <TextField
+                                                id="standard-name"
+                                                label="Precio de compra"
+                                                className={classes.textField}
 
-                                            margin="normal"
-                                        />
+                                                margin="normal"
+                                            />
+                                        </div>
+                                        <div className="six columns">
+                                            <TextField
+                                                id="standard-name"
+                                                label="Precio de venta"
+                                                className={classes.textField}
+
+                                                margin="normal"
+                                            />
+                                        </div>
                                     </div>
-                                </div>
-                                <div>
-
-                                    <div className="six columns">
-                                    <TextField
-                                            id="standard-name"
-                                            label="Precio de compra"
-                                            className={classes.textField}
-
-                                            margin="normal"
-                                        />
-                                    </div>
-                                    <div className="six columns">
-                                    <TextField
-                                            id="standard-name"
-                                            label="Precio de venta"
-                                            className={classes.textField}
-
-                                            margin="normal"
-                                        />
-                                    </div>
-                                </div>
-                                <div>
-                                    <div className="six columns">
-                                        <div>
-                                            <Button
-                                                variant="contained"
-                                                size="large"
-                                                className={classes.fondo} >
-                                                Guardar
+                                    <div>
+                                        <div className="six columns">
+                                            <div>
+                                                <Button
+                                                    onClick={() => {
+                                                        this.HandleGuardar()
+                                                    }}
+                                                    variant="contained"
+                                                    size="large"
+                                                    className={classes.fondo} >
+                                                    Guardar
                                     </Button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </form>
                         </Paper>
                     </section>
                 </div>
