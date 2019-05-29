@@ -18,7 +18,7 @@ class Init extends Component {
           <Login></Login>
         </section>
 
-        <Footer></Footer>
+        {/* <Footer></Footer> */}
 
       </div>
     )
