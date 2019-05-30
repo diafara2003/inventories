@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import Header from "./Commons/Header";
-import Footer from './Commons/Footer';
+// import Footer from './Commons/Footer';
 import Login from "./Login/login"
 
 

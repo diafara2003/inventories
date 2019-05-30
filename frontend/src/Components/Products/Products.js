@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 import '../../css/skeleton.css';
 import '../../css/Products.css';
@@ -13,8 +14,10 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import Paper from '@material-ui/core/Paper';
+import NumberFormat from 'react-number-format';
 
-import {CustomTableRow,CustomTableCell} from '../Utilities/Utilities'
+import { CustomTableRow, CustomTableCell } from '../Utilities/Utilities'
+
 
 const styles = theme => ({
     root: {
@@ -27,21 +30,28 @@ const styles = theme => ({
     },
 });
 
-let id = 0;
-function createData(name, calories, fat, carbs, protein) {
-    id += 1;
-    return { id, name, calories, fat, carbs, protein };
-}
 
-const rows = [
-    createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-    createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-    createData('Eclair', 262, 16.0, 24, 6.0),
-    createData('Cupcake', 305, 3.7, 67, 4.3),
-    createData('Gingerbread', 356, 16.0, 49, 3.9),
-];
 
 class Products extends Component {
+
+
+    obtenerDatos = () => {
+        axios.get('http://localhost/InventoriesAPI/api/producto').then(response => {
+            this.setState({
+                productos: response.data
+            })
+
+        })
+    }
+
+    componentDidMount() {
+        this.obtenerDatos();
+    }
+
+
+    state = {
+        productos: []
+    }
 
     render() {
 
@@ -57,29 +67,32 @@ class Products extends Component {
                     <section className="form-data">
                         <h5>Consulta de productos</h5>
                         <hr />
-                        {/* aqui va otro componente */}
                         <div>
                             <Paper className={classes.root}>
                                 <Table className={classes.table}>
                                     <TableHead>
                                         <CustomTableRow>
-                                            <CustomTableCell>Dessert (100g serving)</CustomTableCell>
-                                            <CustomTableCell align="right">Calories</CustomTableCell>
-                                            <CustomTableCell align="right">Fat (g)</CustomTableCell>
-                                            <CustomTableCell align="right">Carbs (g)</CustomTableCell>
-                                            <CustomTableCell align="right">Protein (g)</CustomTableCell>
+                                            <CustomTableCell>Nombre proucto</CustomTableCell>
+                                            <CustomTableCell align="center">Unidad de medida</CustomTableCell>
+                                            <CustomTableCell align="left">Categoria</CustomTableCell>
+                                            <CustomTableCell align="right">Precio de compra</CustomTableCell>
+                                            <CustomTableCell align="right">Precio de  venta</CustomTableCell>
                                         </CustomTableRow>
                                     </TableHead>
                                     <TableBody>
-                                        {rows.map(row => (
-                                            <CustomTableRow key={row.id}>
+                                        {this.state.productos.map(row => (
+                                            <CustomTableRow key={row.prodId}>
                                                 <TableCell component="th" scope="row">
-                                                    {row.name}
+                                                    {row.prodNombre}
                                                 </TableCell>
-                                                <TableCell align="right">{row.calories}</TableCell>
-                                                <TableCell align="right">{row.fat}</TableCell>
-                                                <TableCell align="right">{row.carbs}</TableCell>
-                                                <TableCell align="right">{row.protein}</TableCell>
+                                                <TableCell align="center">{row.prodUM}</TableCell>
+                                                <TableCell align="left">{row.prodCategoria}</TableCell>
+                                                <TableCell align="right">
+                                                    <NumberFormat value={row.prodPrecioCompra} displayType={'text'} thousandSeparator={true} prefix={'$'} />
+                                                </TableCell>
+                                                <TableCell align="right">
+                                                    <NumberFormat value={row.prodPrecioVenta} displayType={'text'} thousandSeparator={true} prefix={'$'} />
+                                                </TableCell>
                                             </CustomTableRow>
                                         ))}
                                     </TableBody>

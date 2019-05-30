@@ -40,10 +40,8 @@ class Dashboard extends Component {
                                              ?
                                             <div>
                                                 < div className="nav-item active"  >
-                                                    <a onClick={e => {
-
-                                                    }}
-                                                        className="nav-link">{k.item}</a>
+                                                    <span 
+                                                        className="nav-link">{k.item}</span>
                                                     <i className="fas fa-chevron-down"></i>
 
                                                 </div>
@@ -62,7 +60,7 @@ class Dashboard extends Component {
                                             :
                                             < div className="nav-item" >
 
-                                                <a onClick={e => {
+                                                <span onClick={e => {
 
                                                     this.setState({
                                                         item: k.item
@@ -70,7 +68,7 @@ class Dashboard extends Component {
                                                     })
 
                                                 }}
-                                                    className="nav-link">{k.item}</a>
+                                                    className="nav-link">{k.item}</span>
                                                 <i className="fas fa-chevron-right"></i>
                                             </div>
                                         }

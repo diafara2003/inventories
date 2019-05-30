@@ -7,7 +7,8 @@
     overflow: auto;
 }
 
-.menu a {
+.menu span, .menu a {
+    cursor: pointer;
     color: black;
     width: 160px;
 }
@@ -26,6 +27,7 @@
 /* .nav-item:hover {
     background-color: rgba(230, 72, 20, 1);
 } */
+
 /* .nav-item a:hover{
     color:white;
 } */

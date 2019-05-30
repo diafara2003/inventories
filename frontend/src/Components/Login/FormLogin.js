@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import axios from 'axios';
+import Swal from "sweetalert2";
 
 class FormLogin extends Component {
     state = {
@@ -15,32 +16,46 @@ class FormLogin extends Component {
     LogIn = () => {
 
         //   
-        if (this.state.usuario != '' && this.state.clave != '') {
+        if (this.state.usuario !== '' && this.state.clave !== '') {
             axios.get(`http://localhost/InventoriesAPI/api/usuario/validar?user=${this.state.usuario}&password=${this.state.clave}`)
                 .then(res => {
-                   if(res.data.Usu){
+                   if(res.data.usuUsuario!=='' && res.data.usuUsuario!==null){
                     this.props.history.push('/dashboard');
                    }else{
-                    this.setState({
-                        error: true,
-                        msn: 'El usuario o la contraseña con incorrectos.'
-                    })           
+                    Swal.fire({
+                        type: 'error',
+                        title: 'inicio de sesion',
+                        text: 'El usuario o la contraseña con incorrectos.',
+                        confirmButtonText:'Aceptar'
+            
+                    })
+                    // this.setState({
+                    //     error: true,
+                    //     msn: 'El usuario o la contraseña con incorrectos.'
+                    // })           
                    }
                     
                 }).catch(error => {
 
                 })
         } else {
-            this.setState({
-                error: true,
-                msn: 'Usuario y contraseña con obligatorios.'
+            Swal.fire({
+                type: 'error',
+                title: 'inicio de sesion',
+                text: 'Usuario y contraseña con obligatorios.',
+                confirmButtonText:'Aceptar'
+    
             })
+            // this.setState({
+            //     error: true,
+            //     msn: 'Usuario y contraseña con obligatorios.'
+            // })
         }
 
     }
 
     render() {
-        const { history } = this.props;
+       
         return (
             <div className="shadow p-3  bg-white form-login">
                 <form className="form-login">

@@ -6,6 +6,7 @@ import '../../css/Products.css';
 import Header from '../Commons/Header';
 import Dashboard from "../menu/Dashboard";
 
+
 import Swal from "sweetalert2";
 
 import Button from '@material-ui/core/Button';
@@ -44,17 +45,40 @@ const styles = theme => ({
 class NewProduct extends Component {
 
 
+    state = {
+        producto: {
+            ProdId: 0,
+            ProdNombre: '',
+            ProdUM: '',
+            ProdCategoria: '',
+            ProdPrecioCompra: 0,
+            ProdPrecioVenta: 0
+        }
+    }
+
+
     HandleGuardar = () => {
+
         Swal.fire({
             type: 'success',
             title: 'Producto creado...',
-            text: 'de click en el boton aceptar para continuar',
-            confirmButtonText:'Aceptar'
+            text: 'de click en el boton aceptar para continuar' + this.state.producto.ProdNombre,
+            confirmButtonText: 'Aceptar'
 
         })
     }
 
     render() {
+
+        const handleChange = (name) => event => {
+
+            let producto = { ...this.state.producto };
+            producto[name] = event.target.value;
+            this.setState({ producto });
+
+        };
+
+
         const { classes } = this.props;
         return (
             <section>
@@ -75,7 +99,7 @@ class NewProduct extends Component {
                                                 id="standard-name"
                                                 label="Nombre"
                                                 className={classes.textField}
-
+                                                onChange={handleChange('ProdNombre')}
                                                 margin="normal"
                                             />
 
@@ -85,7 +109,7 @@ class NewProduct extends Component {
                                                 id="standard-name"
                                                 label="Unidad de medida"
                                                 className={classes.textField}
-
+                                                onChange={handleChange('ProdUM')}
                                                 margin="normal"
                                             />
                                         </div>
@@ -97,7 +121,7 @@ class NewProduct extends Component {
                                                 id="standard-name"
                                                 label="Categoria"
                                                 className={classes.textField}
-
+                                                onChange={handleChange('ProdCategoria')}
                                                 margin="normal"
                                             />
                                         </div>
@@ -108,8 +132,9 @@ class NewProduct extends Component {
                                             <TextField
                                                 id="standard-name"
                                                 label="Precio de compra"
+                                                type="number"
                                                 className={classes.textField}
-
+                                                onChange={handleChange('ProdPrecioCompra')}
                                                 margin="normal"
                                             />
                                         </div>
@@ -117,11 +142,14 @@ class NewProduct extends Component {
                                             <TextField
                                                 id="standard-name"
                                                 label="Precio de venta"
+                                                type="number"
                                                 className={classes.textField}
+                                                onChange={handleChange('ProdPrecioVenta')}
 
                                                 margin="normal"
                                             />
                                         </div>
+
                                     </div>
                                     <div>
                                         <div className="six columns">
@@ -134,7 +162,7 @@ class NewProduct extends Component {
                                                     size="large"
                                                     className={classes.fondo} >
                                                     Guardar
-                                    </Button>
+                                                </Button>
                                             </div>
                                         </div>
                                     </div>
