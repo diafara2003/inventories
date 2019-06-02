@@ -35,3 +35,8 @@ textarea {
 .columns input, .input-material input {
     font-size: 16px;
 }
+
+td i {
+    color:rgb(230, 81, 0);
+    margin-right: 5px;
+}

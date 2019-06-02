@@ -8,6 +8,7 @@ import Dashboard from "../menu/Dashboard";
 
 
 import Swal from "sweetalert2";
+import axios from 'axios';
 
 import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
@@ -53,21 +54,63 @@ class NewProduct extends Component {
             ProdCategoria: '',
             ProdPrecioCompra: 0,
             ProdPrecioVenta: 0
+        },
+        texto_pagina:'Nuevo producto'
+    }
+
+
+    validar_modelo = () => {
+        let isValid = false;
+
+        if (this.state.producto.ProdNombre !== '' &&
+            this.state.producto.ProdUM !== '' &&
+            this.state.producto.ProdCategoria !== '' &&
+            this.state.producto.ProdPrecioCompra > 0 &&
+            this.state.producto.ProdPrecioVenta > 0) {
+            isValid = true;
         }
+
+        return isValid;
+
     }
 
+    HandleGuardar = (e) => {
+        e.preventDefault();
+        if (this.validar_modelo()) {
+            axios.post('http://localhost/InventoriesAPI/api/producto', this.state.producto).then(res => {
+                Swal.fire({
+                    type: 'success',
+                    title: 'Producto creado...',
+                    text: 'de click en el boton aceptar para continuar',
+                    confirmButtonText: 'Aceptar'
 
-    HandleGuardar = () => {
+                });
+            }).catch(error => {
+                console.log(error);
+                Swal.fire({
+                    type: 'error',
+                    title: 'Error al crear al producto.',
+                    text: 'se ha presentado un error al crear el produco',
+                    confirmButtonText: 'Aceptar'
 
-        Swal.fire({
-            type: 'success',
-            title: 'Producto creado...',
-            text: 'de click en el boton aceptar para continuar' + this.state.producto.ProdNombre,
-            confirmButtonText: 'Aceptar'
+                });
+            });
 
-        })
+
+            e.target.reset();
+        } else {
+            Swal.fire({
+                type: 'error',
+                title: 'Campos obligatorios.',
+                text: 'Todos los campos son obligatorios para poder registrar el producto',
+                confirmButtonText: 'Aceptar'
+
+            });
+        }
+
     }
 
+ 
     render() {
 
         const handleChange = (name) => event => {
@@ -88,10 +131,10 @@ class NewProduct extends Component {
                         <Dashboard option="Productos"></Dashboard>
                     </section>
                     <section className="form-data">
-                        <h5>Nuevo producto</h5>
+                        <h5>{this.state.texto_pagina}</h5>
                         <hr />
                         <Paper className={classes.root}>
-                            <form>
+                            <form onSubmit={this.HandleGuardar}>
                                 <div>
                                     <div>
                                         <div className="six columns">
@@ -99,6 +142,7 @@ class NewProduct extends Component {
                                                 id="standard-name"
                                                 label="Nombre"
                                                 className={classes.textField}
+                                                value={this.state.producto.ProdNombre}
                                                 onChange={handleChange('ProdNombre')}
                                                 margin="normal"
                                             />
@@ -155,9 +199,7 @@ class NewProduct extends Component {
                                         <div className="six columns">
                                             <div>
                                                 <Button
-                                                    onClick={() => {
-                                                        this.HandleGuardar()
-                                                    }}
+                                                    type="submit"
                                                     variant="contained"
                                                     size="large"
                                                     className={classes.fondo} >

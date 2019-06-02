@@ -35,6 +35,31 @@ const styles = theme => ({
 class Products extends Component {
 
 
+    state = {
+        productos: []
+    }
+
+    editarProducto = id => {
+
+    }
+
+    eliminarProducto = id => {
+
+        axios.delete('http://localhost/InventoriesAPI/api/producto/' + id)
+            .then(response => {
+                let productos = [...this.state.productos];
+                let productos_new = productos.filter(c => {
+                    return c.prodId !== id
+                });
+
+                this.setState({
+                    productos: productos_new
+                });
+            }).catch(error => {
+                alert('paila');
+            })
+    }
+
     obtenerDatos = () => {
         axios.get('http://localhost/InventoriesAPI/api/producto').then(response => {
             this.setState({
@@ -49,13 +74,20 @@ class Products extends Component {
     }
 
 
-    state = {
-        productos: []
-    }
 
     render() {
 
-        const { classes } = this.props;
+        const { classes,history } = this.props;
+
+        const eliminar = (id) => (event) => {
+            this.eliminarProducto(id);
+        }
+
+        const editar = id => (event) => {
+            history.push('/edit-product/'+id);
+        }
+
+        
 
         return (
             <section>
@@ -72,16 +104,21 @@ class Products extends Component {
                                 <Table className={classes.table}>
                                     <TableHead>
                                         <CustomTableRow>
+                                            <CustomTableCell align="right">Código</CustomTableCell>
                                             <CustomTableCell>Nombre proucto</CustomTableCell>
                                             <CustomTableCell align="center">Unidad de medida</CustomTableCell>
                                             <CustomTableCell align="left">Categoria</CustomTableCell>
                                             <CustomTableCell align="right">Precio de compra</CustomTableCell>
                                             <CustomTableCell align="right">Precio de  venta</CustomTableCell>
+                                            <CustomTableCell align="right">Opciones</CustomTableCell>
                                         </CustomTableRow>
                                     </TableHead>
                                     <TableBody>
                                         {this.state.productos.map(row => (
                                             <CustomTableRow key={row.prodId}>
+                                                <TableCell align="right">
+                                                    {row.prodId}
+                                                </TableCell>
                                                 <TableCell component="th" scope="row">
                                                     {row.prodNombre}
                                                 </TableCell>
@@ -92,6 +129,14 @@ class Products extends Component {
                                                 </TableCell>
                                                 <TableCell align="right">
                                                     <NumberFormat value={row.prodPrecioVenta} displayType={'text'} thousandSeparator={true} prefix={'$'} />
+                                                </TableCell>
+                                                <TableCell align="right">
+                                                    <i className="fas fa-edit"
+                                                        onClick={editar(row.prodId)}
+                                                    ></i>
+                                                    <i className="fas fa-trash-alt"
+                                                        onClick={eliminar(row.prodId)}
+                                                    ></i>
                                                 </TableCell>
                                             </CustomTableRow>
                                         ))}
