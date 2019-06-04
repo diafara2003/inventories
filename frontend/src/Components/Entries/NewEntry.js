@@ -9,12 +9,6 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-
 
 
 import Fab from '@material-ui/core/Fab';
@@ -22,42 +16,44 @@ import AddIcon from '@material-ui/icons/Add';
 import DeleteIcon from '@material-ui/icons/Delete';
 import SaveIcon from '@material-ui/icons/Save';
 
+import DetailEntrada from '../Entries/DetailEntrada';
 
 import '../../css/skeleton.css';
 import '../../css/Products.css';
 
-import { CustomTableRow, CustomTableCell } from '../Utilities/Utilities'
+import { CustomTableRow, CustomTableCell,style_table  } from '../Utilities/Utilities'
 
 
 
-const styles = theme => ({
-    root: {
-        width: '95%',
-        marginTop: theme.spacing.unit * 3,
-        padding: '10px',
-        overflowX: 'auto',
-    },
-    margin: {
-        margin: 7,
-    },
-    borderFecha: {
-        borderBottom: '1px solid black',
-        marginTop: '12px'
-    },
-    textField: {
-        marginLeft: theme.spacing.unit,
-        marginRight: theme.spacing.unit,
-        width: '100%',
-        fontSize: '16px'
-    },
-    dense: {
-        marginTop: 19,
-    },
-});
+
+// const styles = theme => ({
+//     root: {
+//         width: '95%',
+//         marginTop: theme.spacing.unit * 3,
+//         padding: '10px',
+//         overflowX: 'auto',
+//     },
+//     margin: {
+//         margin: 7,
+//     },
+//     borderFecha: {
+//         borderBottom: '1px solid black',
+//         marginTop: '12px'
+//     },
+//     textField: {
+//         marginLeft: theme.spacing.unit,
+//         marginRight: theme.spacing.unit,
+//         width: '100%',
+//         fontSize: '16px'
+//     },
+//     dense: {
+//         marginTop: 19,
+//     },
+// });
 
 class NewEntry extends Component {
     state = {
-        open: false,
+        open: true,
     }
 
     handleClickOpen = () => {
@@ -65,7 +61,7 @@ class NewEntry extends Component {
     };
 
     handleClose = () => {
-        this.setState({ open: false });
+        this.setState({ open: false });   
     };
 
     render() {
@@ -204,68 +200,12 @@ class NewEntry extends Component {
                         </div>
                     </section>
                 </div>
+                <DetailEntrada handleClose={this.handleClose} open={this.state.open}></DetailEntrada>
 
 
-                <Dialog
-                    open={this.state.open}
-                    onClose={this.handleClose}
-                    aria-labelledby="form-dialog-title"
-                    maxWidth="sm"
-                    fullWidth={true}
-                >
-                    
-                    <DialogContent>
-                        <label>Agregar producto a la entrada</label>
-                        
-                        <div className="input-material">
-                            <TextField
-                                id="standard-name"
-                                label="Producto"
-                                className={classes.textField}
-
-                                margin="normal"
-                            />
-                        </div>
-                        <div className="input-material">
-                            <TextField
-                                id="standard-name"
-                                label="Unidad de medida"
-                                className={classes.textField}
-
-                                margin="normal"
-                            />
-                        </div>
-                        <div className="input-material">
-                            <TextField
-                                id="standard-name"
-                                label="Cantidad"
-                                className={classes.textField}
-
-                                margin="normal"
-                            />
-                        </div>
-                        <div className="input-material">
-                            <TextField
-                                id="standard-name"
-                                label="Precio unitario"
-                                className={classes.textField}
-
-                                margin="normal"
-                            />
-                        </div>
-                    </DialogContent>
-                    <DialogActions>
-                        <Button  variant="contained" onClick={this.handleClose} color="default">
-                            Cerrar
-            </Button>
-                        <Button variant="contained" onClick={this.handleClose} color="primary">
-                            Guardar
-            </Button>
-                    </DialogActions>
-                </Dialog>
             </section>
 
         )
     }
 }
-export default withStyles(styles)(NewEntry);
+export default withStyles(style_table)(NewEntry);

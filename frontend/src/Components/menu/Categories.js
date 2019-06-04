@@ -15,7 +15,7 @@ const styles = theme => ({
         marginTop: theme.spacing.unit,
         padding: '10px',
         overflowX: 'auto',
-        height: '80vh'
+        height: '75vh'
     },
     texto: {
         color: 'gray',

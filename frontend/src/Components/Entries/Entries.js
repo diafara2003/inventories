@@ -16,23 +16,8 @@ import Paper from '@material-ui/core/Paper';
 import DeleteSharpIcon from '@material-ui/icons/DeleteSharp';
 import EditSharpIcon from '@material-ui/icons/EditSharp';
 
-import { CustomTableRow, CustomTableCell } from '../Utilities/Utilities'
+import { CustomTableRow, CustomTableCell,style_table } from '../Utilities/Utilities'
 
-
-const styles = theme => ({
-    root: {
-        width: '100%',
-        marginTop: theme.spacing.unit * 3,
-        overflowX: 'auto',
-    },
-    table: {
-        minWidth: 700,
-    },
-    spaceIcon: {
-        marginRight: 10
-    }
-
-});
 
 let id = 0;
 function createData(name, calories, fat, carbs, protein) {
@@ -102,5 +87,5 @@ class Entries extends Component {
     }
 }
 
-export default withStyles(styles)(Entries);
+export default withStyles(style_table)(Entries);
 

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import '../../css/skeleton.css';
 import '../../css/Products.css';
+import {style_table} from '../Utilities/Utilities';
 
 import Header from '../Commons/Header';
 import Dashboard from "../menu/Dashboard";
@@ -16,32 +17,6 @@ import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 
 
-const styles = theme => ({
-    root: {
-        width: '95%',
-        marginTop: theme.spacing.unit * 3,
-        padding: '10px',
-        overflowX: 'auto',
-    },
-    fondo: {
-        backgroundColor: '#e65100',
-        color: 'white'
-    }
-    ,
-    textField: {
-        marginLeft: theme.spacing.unit,
-        marginRight: theme.spacing.unit,
-        width: '100%',
-        fontSize: '16px'
-    },
-    dense: {
-        marginTop: 19,
-    },
-    menu: {
-        width: 200,
-    },
-
-});
 
 class NewProduct extends Component {
 
@@ -219,4 +194,4 @@ class NewProduct extends Component {
     };
 }
 
-export default withStyles(styles)(NewProduct);
+export default withStyles(style_table)(NewProduct);

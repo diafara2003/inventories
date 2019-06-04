@@ -16,35 +16,9 @@ import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 
 
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import {style_table } from '../Utilities/Utilities'
 
-
-const styles = theme => ({
-    root: {
-        width: '95%',
-        marginTop: theme.spacing.unit * 3,
-        padding: '10px',
-        overflowX: 'auto',
-    },
-    fondo: {
-        backgroundColor: '#e65100',
-        color: 'white'
-    }
-    ,
-    textField: {
-        marginLeft: theme.spacing.unit,
-        marginRight: theme.spacing.unit,
-        width: '100%',
-        fontSize: '16px'
-    },
-    dense: {
-        marginTop: 19,
-    },
-    menu: {
-        width: 200,
-    },
-
-});
 
 class EditProduct extends Component {
 
@@ -65,18 +39,26 @@ class EditProduct extends Component {
             this.setState({
                 producto: response.data
             });
-            
+
         })
     }
 
     HandleGuardar = event => {
         event.preventDefault();
-        axios.put('http://localhost/InventoriesAPI/api/producto',this.state.producto).then(response => {
+        axios.put('http://localhost/InventoriesAPI/api/producto', this.state.producto).then(response => {
             if (response.codigo > 0) {
                 Swal.fire({
                     type: 'success',
                     title: 'Producto editado...',
                     text: 'de click en el boton aceptar para continuar',
+                    confirmButtonText: 'Aceptar'
+
+                });
+            } else {
+                Swal.fire({
+                    type: 'error',
+                    title: 'Error al editar el producto',
+                    text: response.mensaje,
                     confirmButtonText: 'Aceptar'
 
                 });
@@ -212,4 +194,4 @@ class EditProduct extends Component {
 
 }
 
-export default withStyles(styles)(EditProduct);
+export default withStyles(style_table)(EditProduct);
