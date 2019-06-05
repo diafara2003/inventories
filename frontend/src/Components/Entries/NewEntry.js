@@ -102,7 +102,7 @@ class NewEntry extends Component {
                                         <Fab onClick={this.handleClickOpen} size="small" color="primary" aria-label="Add" className={classes.fab}>
                                             <AddIcon />
                                         </Fab>
-                                        <Fab size="small" aria-label="Add" className={classes.margin}>
+                                        <Fab size="small" aria-label="Add"  className={classes.trash}>
                                             <DeleteIcon />
                                         </Fab>
                                         <Fab size="small" aria-label="Add" className={classes.margin}>

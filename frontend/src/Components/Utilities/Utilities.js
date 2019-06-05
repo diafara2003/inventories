@@ -23,8 +23,17 @@ export const style_table = theme => ({
     fondo: {
         backgroundColor: '#e65100',
         color: 'white'
-    }
-    ,
+    },
+    trash: {
+        backgroundColor: 'red',
+        color: 'white',
+        margin: 7
+    },
+    save:{
+        backgroundColor: 'green',
+        color: 'white',
+        margin: 7
+    },
     textField: {
         marginLeft: theme.spacing.unit,
         marginRight: theme.spacing.unit,
