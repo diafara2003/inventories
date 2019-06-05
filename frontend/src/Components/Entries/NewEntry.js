@@ -53,7 +53,7 @@ import { CustomTableRow, CustomTableCell,style_table  } from '../Utilities/Utili
 
 class NewEntry extends Component {
     state = {
-        open: true,
+        open: false,
     }
 
     handleClickOpen = () => {
@@ -116,9 +116,6 @@ class NewEntry extends Component {
                                         </div>
                                     </div>
                                     <div>
-
-
-
                                         <Table >
                                             <TableHead>
                                                 <CustomTableRow>
