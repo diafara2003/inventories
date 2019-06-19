@@ -90,7 +90,7 @@ class FormLogin extends Component {
                     </div>
 
 
-                    <div className="form-group text-right">
+                    <div className="u-full-width text-right">
 
                         <button type="button" className="button-primary"
                             onClick={() => {

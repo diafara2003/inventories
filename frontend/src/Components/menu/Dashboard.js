@@ -7,6 +7,7 @@ import Header from '../Commons/Header';
 import Options from './Options';
 
 import '../../css/Dashboard.css';
+import '../../css/App.css';
 import random from 'uuid';
 
 
@@ -24,8 +25,9 @@ class Dashboard extends Component {
 
     render() {
         
+        const {item} = this.props;
         return (
-            <section>
+            <div>
 
                 <Header user="true"></Header>
                 <div>
@@ -49,7 +51,7 @@ class Dashboard extends Component {
                                                     <ul >
                                                         {k.subItem.map(sub => {
                                                             return (
-                                                                <Options key={random.v1()} option={sub}></Options>
+                                                                <Options key={random.v1()} option={sub} item={item}></Options>
                                                             )
                                                         })
                                                         }
@@ -58,17 +60,18 @@ class Dashboard extends Component {
 
                                             </div>
                                             :
-                                            < div className="nav-item" >
+                                            < div className="nav-item" 
+                                            onClick={e => {
 
-                                                <span onClick={e => {
+                                                this.setState({
+                                                    item: k.item
 
-                                                    this.setState({
-                                                        item: k.item
+                                                })
 
-                                                    })
+                                            }}
+                                            >
 
-                                                }}
-                                                    className="nav-link">{k.item}</span>
+                                                <span className="nav-link">{k.item}</span>
                                                 <i className="fas fa-chevron-right"></i>
                                             </div>
                                         }
@@ -81,7 +84,7 @@ class Dashboard extends Component {
                     </div>
                 </div>
 
-            </section >
+            </div >
         )
     };
 }

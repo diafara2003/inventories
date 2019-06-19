@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 
-import Header from '../Commons/Header';
+
 import Dashboard from "./Dashboard";
 
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 
-import '../../css/Products.css';
+
 
 
 const styles = theme => ({
@@ -30,21 +30,21 @@ class Cateogies extends Component {
     render() {
         const { classes } = this.props;
         return (
-            <section>
-                <Header></Header>
+            <div>
+                
                 <div className="do-work">
-                    <section>
+                    <div>
                         <Dashboard key={Date.now()}></Dashboard>
-                    </section>
+                    </div>
 
-                    <section className="form-data">
+                    <div className="form-data">
                         <Paper className={classes.root}>
                             <h5 className={classes.texto}>Seleccione una opción del menú</h5>
                         </Paper>
 
-                    </section>
+                    </div>
                 </div>
-            </section>
+            </div>
         )
     };
 }

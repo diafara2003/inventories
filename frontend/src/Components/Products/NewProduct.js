@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import '../../css/skeleton.css';
+
 import '../../css/Products.css';
 import {style_table} from '../Utilities/Utilities';
 
@@ -15,7 +15,6 @@ import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
-
 
 
 class NewProduct extends Component {
@@ -103,7 +102,7 @@ class NewProduct extends Component {
                 <Header></Header>
                 <div className="do-work">
                     <section>
-                        <Dashboard option="Productos"></Dashboard>
+                        <Dashboard option="Productos" item="crear producto"></Dashboard>
                     </section>
                     <section className="form-data">
                         <h5>{this.state.texto_pagina}</h5>

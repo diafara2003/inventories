@@ -1,12 +1,5 @@
 .form-login {
-    width: 450px;
+    width: 500px;
     margin-top: 7%;
 }
 
-@media (max-width: 1144px) {
-    .form-login{
-      width: 90vw;
-      margin-top:0px;
-      
-    }
-  }

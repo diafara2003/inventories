@@ -71,7 +71,7 @@ class NewEntry extends Component {
                 <Header></Header>
                 <div className="do-work">
                     <section>
-                        <Dashboard option="Entrada de almacén"></Dashboard>
+                        <Dashboard option="Entrada de almacén"  item="crear entrada"></Dashboard>
                     </section>
                     <section className="form-data">
                         <h5>Nueva entrada</h5>

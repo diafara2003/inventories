@@ -6,9 +6,14 @@ class Footer extends Component {
         return (
             <footer>
                 <div className="footer border-top shadow">
-                    <div>
-                        footer
-                </div>
+                    <div className="footer-desc">
+                        <div>
+                            <span>Inventarios</span>
+                        </div>
+                        <div>
+                        <span> &copy; 2006 Derechos reservados</span>
+                        </div>
+                    </div>
                 </div>
             </footer>
         );

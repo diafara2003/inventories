@@ -42,7 +42,7 @@
 
 .nav-item-child ul {
     margin-bottom: 0px;
-    padding: 5px;
+   
 }
 
 .nav-item-child li {
@@ -77,10 +77,4 @@ i {
 
 .uno {
     margin-top: 8px;
-}
-
-@media (max-width: 500px) {
-    .menu {
-        width: 99%;
-    }
 }

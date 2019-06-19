@@ -94,7 +94,7 @@ class Products extends Component {
                 <Header></Header>
                 <div className="do-work">
                     <section>
-                        <Dashboard option="Productos"></Dashboard>
+                        <Dashboard option="Productos" item="consultar prodcuto"></Dashboard>
                     </section>
                     <section className="form-data">
                         <h5>Consulta de productos</h5>

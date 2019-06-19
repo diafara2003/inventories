@@ -42,7 +42,7 @@ class Entries extends Component {
                 <Header></Header>
                 <div className="do-work">
                     <section>
-                        <Dashboard option="Entrada de almacén"></Dashboard>
+                        <Dashboard option="Entrada de almacén" item="edición entrada"></Dashboard>
                     </section>
                     <section className="form-data">
                         <h5>Nueva entrada</h5>

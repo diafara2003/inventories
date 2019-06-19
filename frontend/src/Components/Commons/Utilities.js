@@ -2,7 +2,7 @@
 export const MENUS_OP = [
     {
         item: 'Productos', subItem: [
-            { name: 'Crear Prodcuto', path:'/newproduct' },
+            { name: 'Crear Producto', path:'/newproduct' },
             { name: 'Consultar Prodcuto', path:'/products' },
             { name: 'Crear categoria', path:'/products' },
             { name: 'Consultar categoria', path:'/products' },
