@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import deburr from 'lodash/deburr';
 import Downshift from 'downshift';
 import TextField from '@material-ui/core/TextField';
@@ -6,17 +6,6 @@ import Paper from '@material-ui/core/Paper';
 import MenuItem from '@material-ui/core/MenuItem';
 
 
-const suggestions = [
-  { label: 'Pan' },
-  { label: 'Queso' },
-  { label: 'Jamon' },
-  { label: 'Jamon' },
-  { label: 'Jamon' },
-  { label: 'Jamon' },
-  { label: 'Jamon' },
-  { label: 'Jamon' },
-
-];
 
 function renderInput(inputProps) {
   const { InputProps, classes, ref, ...other } = inputProps;
@@ -40,10 +29,10 @@ function renderSuggestion(suggestionProps) {
   return (
     <MenuItem
       {...itemProps}
-      key={suggestion.label}
+      key={suggestion.id}
       selected={isHighlighted}
       component="div"
-
+    // onClick={() =>{ _selected(suggestion)}}
     >
       {suggestion.label}
     </MenuItem>
@@ -51,7 +40,7 @@ function renderSuggestion(suggestionProps) {
 }
 
 
-function getSuggestions(value, { showEmpty = true } = {}) {
+function getSuggestions(suggestions, value, { showEmpty = true } = {}) {
   const inputValue = deburr(value.trim()).toLowerCase();
   const inputLength = inputValue.length;
 
@@ -61,7 +50,7 @@ function getSuggestions(value, { showEmpty = true } = {}) {
     : suggestions.filter(suggestion => {
 
       return suggestion.label.slice(0, inputLength).toLowerCase() === inputValue;
-    }).splice(0,5);
+    }).splice(0, 5);
 }
 
 
@@ -97,59 +86,76 @@ const useStyles = {
 };
 
 
-function AutoComplete() {
-  const classes = useStyles;
+class AutoComplete extends Component {
 
-  return (
-    <div>
-      <Downshift id="downshift-simple">
-        {({
-          getInputProps,
-          getItemProps,
-          getLabelProps,
-          getMenuProps,
-          highlightedIndex,
-          inputValue,
-          isOpen,
-          selectedItem,
-        }) => {
-          const { onBlur, onFocus, ...inputProps } = getInputProps({
-            placeholder: 'Seleccione un producto registrado en el sistema',
-          });
+  handle_selected = (e) => {
+    this.props._selected_item(e);
+  }
 
-          return (
-            <div className={classes.container}>
-              {renderInput({
-                fullWidth: true,
-                classes,
-                label: 'Productos',
-                InputLabelProps: getLabelProps({ shrink: true }),
-                InputProps: { onBlur, onFocus },
-                inputProps,
-              })}
 
-              <div {...getMenuProps()}>
-                {isOpen ? (
-                  <Paper className="autocomplete-paper" square>
-                    {getSuggestions(inputValue).map((suggestion, index) =>
-                      renderSuggestion({
-                        suggestion,
-                        index,
-                        itemProps: getItemProps({ item: suggestion.label }),
-                        highlightedIndex,
-                        selectedItem,
-                      }),
-                    )}
-                  </Paper>
-                ) : null}
+  render() {
+    const classes = useStyles;
+    const { suggestions } = this.props;
+    return (
+      <div>
+        <Downshift id="downshift-simple"
+           itemToString={item => (item ? item.label : '')}
+          onChange={selection => {
+            
+            this.handle_selected(selection);
+
+          }}
+        >
+          {({
+            getInputProps,
+            getItemProps,
+            getLabelProps,
+            getMenuProps,
+            highlightedIndex,
+            inputValue,
+            isOpen,
+            selectedItem,
+          }) => {
+            const { onBlur, onFocus, ...inputProps } = getInputProps({
+              placeholder: 'Seleccione un producto registrado en el sistema',
+            });
+
+            return (
+              <div className={classes.container}>
+                {renderInput({
+                  fullWidth: true,
+                  classes,
+                  label: 'Producto',
+                  InputLabelProps: getLabelProps({ shrink: true }),
+                  InputProps: { onBlur, onFocus },
+                  inputProps,
+                })}
+
+                <div {...getMenuProps()}>
+                  {isOpen ? (
+                    <Paper className="autocomplete-paper" square>
+                      {getSuggestions(suggestions, inputValue).map((suggestion, index) =>
+                        renderSuggestion({
+                          suggestion,
+                          index,
+                          itemProps: getItemProps({item:suggestion,index:index}),
+                          highlightedIndex,
+                          selectedItem
+
+                        }),
+                      )}
+                    </Paper>
+                  ) : null}
+                </div>
               </div>
-            </div>
-          );
-        }}
-      </Downshift>
+            );
+          }}
+        </Downshift>
 
-    </div>
-  );
+      </div>
+    )
+
+  }
 }
 
 export default AutoComplete;

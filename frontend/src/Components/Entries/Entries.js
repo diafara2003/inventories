@@ -13,8 +13,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import Paper from '@material-ui/core/Paper';
 
-import DeleteSharpIcon from '@material-ui/icons/DeleteSharp';
-import EditSharpIcon from '@material-ui/icons/EditSharp';
+
 
 import { CustomTableRow, CustomTableCell,style_table } from '../Utilities/Utilities'
 
@@ -37,7 +36,7 @@ class Entries extends Component {
 
     render() {
 
-        const { classes } = this.props;
+        
         return (
             <section>
                 <Header></Header>
@@ -68,8 +67,12 @@ class Entries extends Component {
                                                 <TableCell align="right">{row.fat}</TableCell>
                                                 <TableCell align="right">{row.carbs}</TableCell>
                                                 <TableCell align="center" >
-                                                    <DeleteSharpIcon className={classes.spaceIcon} />
-                                                    <EditSharpIcon />
+                                                <i className="fas fa-edit"
+                                                       
+                                                    ></i>
+                                                    <i className="fas fa-trash-alt"
+                                                       
+                                                    ></i>
 
                                                 </TableCell>
                                             </CustomTableRow>

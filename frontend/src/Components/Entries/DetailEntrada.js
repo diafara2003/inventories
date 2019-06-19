@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Button from '@material-ui/core/Button';
+import axios from 'axios';
 
 import '../../css/skeleton.css';
 import '../../css/Products.css';
@@ -17,9 +18,58 @@ import AutoComplete from "../Entries/AutoComplete";
 
 class DetailEntrada extends Component {
 
+    state = {
+        suggestions: [],
+        producto: {
+            prodUm: '',
+            prodPrecioVenta: '',
+            cantidad: 0
+        }
+
+    }
+
+    componentDidMount() {
+        axios.get('http://localhost/InventoriesAPI/api/producto').then(response => {
+            if (response.data != null && response.data.length >= 0) {
+                var _datos = [];
+                for (var i = 0; i < response.data.length; i++) {
+                    const product = response.data[i];
+                    _datos.push({
+                        label: product.prodNombre,
+                        id: product.prodId,
+                        prodUm: product.prodUm,
+                        prodPrecioVenta: product.prodPrecioVenta,
+                        prodCategoria: product.prodCategoria
+                    })
+                }
+                this.setState({
+                    suggestions: _datos
+                })
+            }
+        });
+    }
+
+    handleSelecteProducto = (product) => {
+        console.log(product);
+
+        let producto = { ...this.state.producto };
+        producto.prodUm = product.prodUm;
+        producto.prodPrecioVenta = product.prodPrecioVenta;
+        this.setState({ producto })
+    }
+
     render() {
         const { classes, open } = this.props;
-       
+
+        const handleChange = (name) => event => {
+
+            let producto = { ...this.state.producto };
+            producto[name] = event.target.value;
+            this.setState({ producto });
+
+        };
+
+
         return (
             <Dialog
                 open={open}
@@ -31,24 +81,18 @@ class DetailEntrada extends Component {
 
                 <DialogContent>
                     <label>Agregar producto a la entrada</label>
-                    <hr/>
+                    <hr />
 
                     <div className="input-material">
-                      <AutoComplete></AutoComplete>
-                        {/* <TextField
-                            id="standard-name"
-                            label="Producto"
-                            className={classes.textField}
-
-                            margin="normal"
-                        /> */}
+                        <AutoComplete suggestions={this.state.suggestions} _selected_item={this.handleSelecteProducto}></AutoComplete>
                     </div>
                     <div className="input-material">
                         <TextField
                             id="standard-name"
                             label="Unidad de medida"
                             className={classes.textField}
-
+                            value={this.state.producto.prodUm}
+                            onChange={handleChange('prodUm')}
                             margin="normal"
                         />
                     </div>
@@ -57,7 +101,8 @@ class DetailEntrada extends Component {
                             id="standard-name"
                             label="Cantidad"
                             className={classes.textField}
-
+                            value={this.state.producto.cantidad}
+                            onChange={handleChange('cantidad')}
                             margin="normal"
                         />
                     </div>
@@ -66,7 +111,8 @@ class DetailEntrada extends Component {
                             id="standard-name"
                             label="Precio unitario"
                             className={classes.textField}
-
+                            value={this.state.producto.prodPrecioVenta}
+                            onChange={handleChange('prodPrecioVenta')}
                             margin="normal"
                         />
                     </div>
