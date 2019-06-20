@@ -32,7 +32,7 @@ function renderSuggestion(suggestionProps) {
       key={suggestion.id}
       selected={isHighlighted}
       component="div"
-    // onClick={() =>{ _selected(suggestion)}}
+      
     >
       {suggestion.label}
     </MenuItem>
@@ -66,7 +66,7 @@ const useStyles = {
   paper: {
     position: 'absolute',
     zIndex: 1,
-
+    width: '100%',
     left: 0,
     right: 0,
   },
@@ -99,9 +99,9 @@ class AutoComplete extends Component {
     return (
       <div>
         <Downshift id="downshift-simple"
-           itemToString={item => (item ? item.label : '')}
+          itemToString={item => (item ? item.label : '')}
           onChange={selection => {
-            
+
             this.handle_selected(selection);
 
           }}
@@ -138,7 +138,7 @@ class AutoComplete extends Component {
                         renderSuggestion({
                           suggestion,
                           index,
-                          itemProps: getItemProps({item:suggestion,index:index}),
+                          itemProps: getItemProps({ item: suggestion, index: index }),
                           highlightedIndex,
                           selectedItem
 

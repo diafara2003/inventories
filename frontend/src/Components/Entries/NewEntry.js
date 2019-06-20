@@ -9,59 +9,46 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TextField from '@material-ui/core/TextField';
-
+import NumberFormat from 'react-number-format';
 
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 import DeleteIcon from '@material-ui/icons/Delete';
 import SaveIcon from '@material-ui/icons/Save';
 
+import random from 'uuid';
+
 import DetailEntrada from '../Entries/DetailEntrada';
 
 import '../../css/skeleton.css';
 import '../../css/Products.css';
 
-import { CustomTableRow, CustomTableCell,style_table  } from '../Utilities/Utilities'
+import { CustomTableRow, CustomTableCell, style_table } from '../Utilities/Utilities';
 
-
-
-
-// const styles = theme => ({
-//     root: {
-//         width: '95%',
-//         marginTop: theme.spacing.unit * 3,
-//         padding: '10px',
-//         overflowX: 'auto',
-//     },
-//     margin: {
-//         margin: 7,
-//     },
-//     borderFecha: {
-//         borderBottom: '1px solid black',
-//         marginTop: '12px'
-//     },
-//     textField: {
-//         marginLeft: theme.spacing.unit,
-//         marginRight: theme.spacing.unit,
-//         width: '100%',
-//         fontSize: '16px'
-//     },
-//     dense: {
-//         marginTop: 19,
-//     },
-// });
 
 class NewEntry extends Component {
+
     state = {
         open: false,
+        detalles:[]
     }
 
     handleClickOpen = () => {
         this.setState({ open: true });
     };
 
+
+    handlenuevoDetalle = (producto) => {
+        let detalle =  [...this.state.detalles] ;
+
+        
+        detalle.push(producto);
+
+        this.setState({ detalles: detalle ,open:false});
+    }
+
     handleClose = () => {
-        this.setState({ open: false });   
+        this.setState({ open: false });
     };
 
     render() {
@@ -71,7 +58,7 @@ class NewEntry extends Component {
                 <Header></Header>
                 <div className="do-work">
                     <section>
-                        <Dashboard option="Entrada de almacén"  item="crear entrada"></Dashboard>
+                        <Dashboard option="Entrada de almacén" item="crear entrada"></Dashboard>
                     </section>
                     <section className="form-data">
                         <h5>Nueva entrada</h5>
@@ -102,7 +89,7 @@ class NewEntry extends Component {
                                         <Fab onClick={this.handleClickOpen} size="small" color="primary" aria-label="Add" className={classes.fab}>
                                             <AddIcon />
                                         </Fab>
-                                        <Fab size="small" aria-label="Add"  className={classes.trash}>
+                                        <Fab size="small" aria-label="Add" className={classes.trash}>
                                             <DeleteIcon />
                                         </Fab>
                                         <Fab size="small" aria-label="Add" className={classes.margin}>
@@ -128,67 +115,37 @@ class NewEntry extends Component {
                                                 </CustomTableRow>
                                             </TableHead>
                                             <TableBody>
-                                                <CustomTableRow key={1}>
-                                                    <TableCell align="right">
-                                                        <span>1</span>
-                                                    </TableCell>
-                                                    <TableCell>
-                                                        <span>Queso</span>
-                                                    </TableCell>
-                                                    <TableCell>
-                                                        <span>Gramos</span>
-                                                    </TableCell>
-                                                    <TableCell align="right">
-                                                        <span>500</span>
-                                                    </TableCell>
-                                                    <TableCell align="right">
-                                                        <span>1000</span>
-                                                    </TableCell>
-                                                    <TableCell align="right">
-                                                        <span>50.000</span>
-                                                    </TableCell>
-                                                </CustomTableRow>
-                                                <CustomTableRow key={2}>
-                                                    <TableCell align="right">
-                                                        <span>2</span>
-                                                    </TableCell>
-                                                    <TableCell>
-                                                        <span>Pan</span>
-                                                    </TableCell>
-                                                    <TableCell>
-                                                        <span>Paquete</span>
-                                                    </TableCell>
-                                                    <TableCell align="right">
-                                                        <span>20</span>
-                                                    </TableCell>
-                                                    <TableCell align="right">
-                                                        <span>3000</span>
-                                                    </TableCell>
-                                                    <TableCell align="right">
-                                                        <span>60.000</span>
-                                                    </TableCell>
-                                                </CustomTableRow>
-                                                <CustomTableRow key={3}>
-                                                    <TableCell align="right">
-                                                        <span>3</span>
-                                                    </TableCell>
-                                                    <TableCell>
-                                                        <span>Jamon</span>
-                                                    </TableCell>
-                                                    <TableCell>
-                                                        <span>Paquete</span>
-                                                    </TableCell>
-                                                    <TableCell align="right">
-                                                        <span>20</span>
-                                                    </TableCell>
-                                                    <TableCell align="right">
-                                                        <span>3000</span>
-                                                    </TableCell>
-                                                    <TableCell align="right">
-                                                        <span>60.000</span>
-                                                    </TableCell>
-                                                </CustomTableRow>
-
+                                                {this.state.detalles.length === 0 ?
+                                                    <CustomTableRow key={random.v1()}>
+                                                        <TableCell align="center" colSpan={6}>
+                                                            <h5>Sin registros..</h5>
+                                                        </TableCell>
+                                                    </CustomTableRow>
+                                                    :
+                                                    this.state.detalles.map(p => (
+                                                        <CustomTableRow key={random.v1()}>
+                                                            <TableCell align="right">
+                                                                <span>{p.prodId}</span>
+                                                            </TableCell>
+                                                            <TableCell align="right">
+                                                                <span>{p.prodNombre}</span>
+                                                            </TableCell>
+                                                            <TableCell align="right">
+                                                                <span>{p.prodUm}</span>
+                                                            </TableCell>
+                                                            <TableCell align="right">
+                                                            <NumberFormat value={p.cantidad} displayType={'text'} thousandSeparator={true}  />
+                                                                
+                                                            </TableCell>
+                                                            <TableCell align="right">
+                                                            <NumberFormat value={p.prodPrecioVenta} displayType={'text'} thousandSeparator={true}  />                                                                
+                                                            </TableCell>
+                                                            <TableCell align="right">
+                                                            <NumberFormat value={p.cantidad * p.prodPrecioVenta} displayType={'text'} thousandSeparator={true} />                                                                
+                                                            </TableCell>
+                                                        </CustomTableRow>
+                                                    ))
+                                                }
                                             </TableBody>
                                         </Table>
                                     </div>
@@ -197,7 +154,7 @@ class NewEntry extends Component {
                         </div>
                     </section>
                 </div>
-                <DetailEntrada handleClose={this.handleClose} open={this.state.open}></DetailEntrada>
+                <DetailEntrada handlenuevoDetalle={this.handlenuevoDetalle} handleClose={this.handleClose} open={this.state.open}></DetailEntrada>
 
 
             </section>

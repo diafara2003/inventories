@@ -1,5 +1,5 @@
 .noticia-login {
-  width: 600px;
+  width: 500px;
   height: 352px;
   padding: 10px 10px;
   /* background-color: #e4e5e6 !important; */
@@ -19,14 +19,7 @@
 
 @media (max-width: 1144px) {
   .noticia-login {
-    width: 90vw;
+    width: 350px;
     margin-bottom: 10px;
-  }
-}
-
-@media (max-width: 500px) {
-  .noticia-login {
-    width: 88vw;
-    margin-bottom: 20px;
   }
 }

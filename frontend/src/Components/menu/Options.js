@@ -8,7 +8,7 @@ const Options = (props) => {
     return (
         <div>
             {
-                name.toLowerCase()== item ?
+                name.toLowerCase()=== item ?
                     <li className="active-li li-menu"><Link to={path}>{name}</Link></li>
                     : <li className="li-menu"><Link to={path}>{name}</Link></li>
             }
