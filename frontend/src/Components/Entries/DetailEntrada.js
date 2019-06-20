@@ -14,20 +14,25 @@ import { withStyles } from '@material-ui/core';
 
 import { style_table } from '../Utilities/Utilities'
 
-import AutoComplete from "../Entries/AutoComplete";
+import AutoComplete from "../Commons/AutoComplete";
 
 class DetailEntrada extends Component {
 
     state = {
+        isValid: false,
         suggestions: [],
         producto: {
+            prodId: -1,
+            prodNombre: '',
             prodUm: '',
             prodPrecioVenta: '',
-            cantidad: 0
+            cantidad: 0,
+
         }
 
     }
 
+<<<<<<< HEAD
     obtenerProucto = async () => {
         let response = await axios.get('http://localhost/InventoriesAPI/api/producto');
 
@@ -41,6 +46,25 @@ class DetailEntrada extends Component {
                     prodUm: product.prodUm,
                     prodPrecioVenta: product.prodPrecioVenta,
                     prodCategoria: product.prodCategoria
+=======
+    componentDidMount() {
+        
+        axios.get('http://localhost/InventoriesAPI/api/producto').then(response => {
+            if (response.data != null && response.data.length >= 0) {
+                var _datos = [];
+                for (var i = 0; i < response.data.length; i++) {
+                    const product = response.data[i];
+                    _datos.push({
+                        label: product.prodNombre,
+                        id: product.prodId,
+                        prodUm: product.prodUm,
+                        prodPrecioVenta: product.prodPrecioVenta,
+                        prodCategoria: product.prodCategoria
+                    })
+                }
+                this.setState({
+                    suggestions: _datos
+>>>>>>> d7cc32f5aa1ae916f89399a1fb7883b32c45a240
                 })
             }
             this.setState({
@@ -54,14 +78,34 @@ class DetailEntrada extends Component {
         this.obtenerProucto();
     }
 
+
+    ValidarModelo = () => {
+        let result = false;
+
+        if (this.state.producto.cantidad > 0
+            && !isNaN( parseFloat(this.state.producto.cantidad))
+            && this.state.producto.prodId !== -1
+            && this.state.producto.prodPrecioVenta > 0
+            && this.state.producto.prodUm !== '') {
+            result = true;
+            this.setState({ isValid: true });
+        }
+
+        return result;
+    }
+
     handleSelecteProducto = (product) => {
         console.log(product);
 
         let producto = { ...this.state.producto };
+        producto.prodId = product.id;
+        producto.prodNombre = product.label;
         producto.prodUm = product.prodUm;
         producto.prodPrecioVenta = product.prodPrecioVenta;
         this.setState({ producto })
     }
+
+
 
     render() {
         const { classes, open } = this.props;
@@ -71,8 +115,17 @@ class DetailEntrada extends Component {
             let producto = { ...this.state.producto };
             producto[name] = event.target.value;
             this.setState({ producto });
+           
 
         };
+
+       const handleAgregarProducto = () => {
+            
+                    if (this.ValidarModelo()) {
+                        this.props.handlenuevoDetalle(this.state.producto);
+                    }
+            
+                }
 
 
         return (
@@ -123,12 +176,25 @@ class DetailEntrada extends Component {
                     </div>
                 </DialogContent>
                 <DialogActions>
-                    <Button variant="contained" onClick={this.props.handleClose} color="default">
+                    {
+                        !this.state.isValid ?
+                            <div className="Error">
+                                <span>Todos los campos son obligatorios para la entrada</span>
+                            </div>
+                            : null
+                    }
+
+                    <Button variant="contained"
+                        onClick={this.props.handleClose}
+                        color="default">
                         Cerrar
-    </Button>
-                    <Button variant="contained" onClick={this.props.handleClose} color="primary">
+                    </Button>
+
+                    <Button variant="contained"
+                        onClick={handleAgregarProducto}
+                        color="primary">
                         Guardar
-    </Button>
+                    </Button>
                 </DialogActions>
             </Dialog>
         )
