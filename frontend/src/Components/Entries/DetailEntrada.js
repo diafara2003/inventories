@@ -32,7 +32,6 @@ class DetailEntrada extends Component {
 
     }
 
-<<<<<<< HEAD
     obtenerProucto = async () => {
         let response = await axios.get('http://localhost/InventoriesAPI/api/producto');
 
@@ -46,25 +45,6 @@ class DetailEntrada extends Component {
                     prodUm: product.prodUm,
                     prodPrecioVenta: product.prodPrecioVenta,
                     prodCategoria: product.prodCategoria
-=======
-    componentDidMount() {
-        
-        axios.get('http://localhost/InventoriesAPI/api/producto').then(response => {
-            if (response.data != null && response.data.length >= 0) {
-                var _datos = [];
-                for (var i = 0; i < response.data.length; i++) {
-                    const product = response.data[i];
-                    _datos.push({
-                        label: product.prodNombre,
-                        id: product.prodId,
-                        prodUm: product.prodUm,
-                        prodPrecioVenta: product.prodPrecioVenta,
-                        prodCategoria: product.prodCategoria
-                    })
-                }
-                this.setState({
-                    suggestions: _datos
->>>>>>> d7cc32f5aa1ae916f89399a1fb7883b32c45a240
                 })
             }
             this.setState({

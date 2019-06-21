@@ -151,7 +151,6 @@ i {
 }
 .active-li {
   color: #e65100;
-  border: 1px solid #ebebeb;
 }
 .active-li a {
   color: #e65100 !important;
